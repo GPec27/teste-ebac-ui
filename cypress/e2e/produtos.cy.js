@@ -15,7 +15,7 @@ describe('Funcionalidade Página de Produtos', () => {
       .click()
   });
 
-  it.only('Deve adicionar o produto ao carrinho', () => {
+  it('Deve adicionar o produto ao carrinho', () => {
     var quantidade = 10
 
     cy.get(' [class="product-block grid"]')
@@ -29,4 +29,13 @@ describe('Funcionalidade Página de Produtos', () => {
     cy.get('.woocommerce-message').should('contain', quantidade + ' × “Ariel Roll Sleeve Sweatshirt” foram adicionados no seu carrinho.')
 
   });
+
+  it('Deve adicionar produtos ao carrinho - Usando comandos customizados', () => {
+    cy.addProdutos('Aero Daily Fitness Tee', 'M', 'Yellow', 3)
+  });
+
+  it('Deve adicionar produtos ao carrinho - Usando comandos customizados', () => {
+    cy.addProdutos('Argus All-Weather Tank', 'L', 'Gray', 5)
+  });
+
 });
